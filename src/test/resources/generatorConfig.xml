@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+  PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+  "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+  <classPathEntry location="C:\Users\Administrator\.m2\repository\mysql\mysql-connector-java\5.1.19\mysql-connector-java-5.1.19.jar" />
+
+  <context id="MySql" targetRuntime="MyBatis3">
+    <jdbcConnection driverClass="com.mysql.jdbc.Driver"
+        connectionURL="jdbc:mysql://14.63.223.23:11000/dubu?autoReconnect=true&amp;useUnicode=true&amp;characterEncoding=utf-8&amp;zeroDateTimeBehavior=convertToNull&amp;useAffectedRows=true"
+        userId=""
+        password="">
+    </jdbcConnection>
+
+    <javaTypeResolver >
+      <property name="forceBigDecimals" value="false" />
+    </javaTypeResolver>
+
+    <javaModelGenerator targetPackage="com.makduck.model" targetProject="C:\workspace_intellij\bbangtool\gen-jpetstore\src\main\java">
+      <property name="enableSubPackages" value="true" />
+      <property name="trimStrings" value="true" />
+    </javaModelGenerator>
+
+    <sqlMapGenerator targetPackage="mybatis.mapper"  targetProject="C:\workspace_intellij\bbangtool\gen-jpetstore\src\main\resources">
+      <property name="enableSubPackages" value="true" />
+    </sqlMapGenerator>
+
+    <javaClientGenerator type="XMLMAPPER" targetPackage="com.makduck.dao"  targetProject="C:\workspace_intellij\bbangtool\gen-jpetstore\src\main\java">
+      <property name="enableSubPackages" value="true" />
+    </javaClientGenerator>
+<!--
+    <table schema="dubu" tableName="product" domainObjectName="Product" >
+      <generatedKey column="productid" sqlStatement="MySql" identity="true" />
+    </table>
+
+    <table schema="dubu" tableName="account" domainObjectName="Account" >
+      <generatedKey column="userid" sqlStatement="MySql" identity="true" />
+    </table>
+
+    <table schema="dubu" tableName="inventory" domainObjectName="Inventory" >
+      <generatedKey column="itemid" sqlStatement="MySql" identity="true" />
+    </table>
+
+    <table schema="dubu" tableName="signon" domainObjectName="Signon" >
+      <generatedKey column="username" sqlStatement="MySql" identity="true" />
+    </table>
+
+    <table schema="dubu" tableName="supplier" domainObjectName="Supplier" >
+      <generatedKey column="suppid" sqlStatement="MySql" identity="true" />
+    </table>-->
+
+      <table schema="dubu" tableName="item" domainObjectName="Item">
+          <generatedKey column="itemid" sqlStatement="MySql" identity="true"/>
+      </table>
+
+  </context>
+</generatorConfiguration>

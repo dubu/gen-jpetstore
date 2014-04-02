@@ -1,0 +1,41 @@
+#* @vtlvariable name="battler" type="com.dubu.model.Battler" *#
+#* @vtlvariable name="cityMap" type="java.util.Map" *#
+
+#set($city = 200739)
+
+#set($a = $rankList.get(10))
+Town: $a
+  #springFormSingleSelect("a.opened" $cityMap "")<br><br>
+
+#if ($rankList && $rankList.size() > 0)
+<div class="rank_list">
+    <div>
+
+        $a.selectedMzUserId $city
+        ##springFormRadioButtons("a.selectedMzUserId" { 200739 : "남", 200740 : "여" } "")
+        #springFormRadioButtons("a.selectedMzUserId" { 38493  : "남", 200740 : "여" } "")
+
+        #foreach ($battler in $rankList)
+            <div>
+                 $battler.opened  $battler
+                <a href="#">  $battler.tournamentId</a>
+                #springFormRadioButtons("battler.opened" { true : "예", false : "아니오" } "")
+                |<a href="#springUrl('/admin/list')"> aaa</a>
+                |#springFormHiddenInput("battler" )
+                |#springFormPasswordInput("battler" )
+                |#springFormTextarea("battler" "title='최대 1000자'")
+                |#springFormPasswordInput("battler" )
+                |#springFormSingleSelect("battler"{ "1" : "남자", "2" : "여자" } "")
+                |#springFormMultiSelect("battler"{ "1" : "남자", "2" : "여자" } "")
+                |#springFormRadioButtons("battler"{ "1" : "남자", "2" : "여자" } "")
+                |#springFormCheckboxes("battler"{ "1" : "남자", "2" : "여자" } "")
+                ||#springFormCheckbox("battler.opened"  "")
+
+            </div>
+
+        #end
+    </div>
+
+#else
+    empty
+#end

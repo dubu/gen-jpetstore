@@ -1,0 +1,18 @@
+#* @vtlvariable name="item" type="com.makduck.model.Item" *#
+#if ($items && $items.size() > 0)
+<div class="">
+    <div>
+        #foreach ($item in $items)
+            <div>
+                $item.itemid
+                |$item.productid
+                |$item.listprice
+                |$item.unitcost
+                |$item.attr1
+            </div>
+
+        #end
+    </div>
+#else
+    empty
+#end
